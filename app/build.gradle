@@ -1,0 +1,102 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.0"
+
+    defaultConfig {
+        applicationId "app.android.giphyapinew"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    def nav_version = "2.3.1"
+    def retrofit_version = "2.9.0"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation "com.squareup.okhttp3:okhttp:4.9.0"
+    implementation 'com.google.code.gson:gson:2.8.5'
+    annotationProcessor "com.github.bumptech.glide:compiler:4.10.0"
+    implementation "com.github.bumptech.glide:glide:4.10.0"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //navigation component
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    //recyclerview
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    //for lifecycle and LiveData and ViewModel
+    implementation 'android.arch.lifecycle:runtime:1.1.1'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    //gson converter
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    //RxJava
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    //RxJava-adapter for retrofit
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    implementation "com.github.ihsanbal:LoggingInterceptor:3.0.0"
+
+    // Koin for Kotlin
+    /*implementation "org.koin:koin-core:$koin_version"
+    // Koin extended & experimental features
+    implementation "org.koin:koin-core-ext:$koin_version"
+    // Koin for Java developers is now part of core
+    // Koin AndroidX Scope features
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"*/
+    // Koin
+    implementation "io.insert-koin:koin-android:3.0.1"
+    implementation "io.insert-koin:koin-android-ext:3.0.1"
+    // Timber
+    implementation "com.jakewharton.timber:timber:4.7.1"
+    // Paging
+    implementation "android.arch.paging:runtime:1.0.1"
+}
